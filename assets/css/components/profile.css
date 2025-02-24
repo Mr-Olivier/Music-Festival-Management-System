@@ -1,0 +1,446 @@
+/**
+ * SoundWave Festival - Music Festival Management System
+ * Profile Component CSS
+ */
+
+/* Page Header */
+.page-header {
+  background-image: var(--gradient-primary);
+  color: var(--light);
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Profile Sidebar */
+.profile-sidebar {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+}
+
+.profile-info {
+  padding: 2rem;
+  background-color: var(--gray-100);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  border: 4px solid var(--light);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.profile-role {
+  color: var(--gray-600);
+  margin-bottom: 0;
+}
+
+.profile-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-nav-item {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.profile-nav-item:last-child {
+  border-bottom: none;
+}
+
+.profile-nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--dark);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.profile-nav-item a:hover {
+  background-color: var(--gray-100);
+  color: var(--primary);
+}
+
+.profile-nav-item.active a {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.profile-nav-item i {
+  width: 20px;
+  margin-right: 1rem;
+}
+
+/* Profile Content */
+.profile-content {
+  margin-bottom: 2rem;
+}
+
+.content-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Personal Information */
+.info-label {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0;
+}
+
+.info-value {
+  margin-bottom: 0;
+}
+
+/* Ticket History */
+.ticket-item {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.ticket-title h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.ticket-meta {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 0;
+}
+
+.ticket-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ticket-status.success {
+  background-color: rgba(var(--success-rgb), 0.1);
+  color: var(--success);
+}
+
+.ticket-status.pending {
+  background-color: rgba(var(--warning-rgb), 0.1);
+  color: var(--warning);
+}
+
+.ticket-status.cancelled {
+  background-color: rgba(var(--danger-rgb), 0.1);
+  color: var(--danger);
+}
+
+.ticket-details {
+  padding: 1.5rem;
+}
+
+.ticket-detail {
+  margin-bottom: 0.5rem;
+}
+
+.ticket-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.no-more-tickets {
+  padding: 2rem 0;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 1rem;
+}
+
+/* Favorite Artists */
+.artist-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: var(--transition);
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.artist-image {
+  position: relative;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+}
+
+.artist-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.artist-card:hover .artist-image img {
+  transform: scale(1.05);
+}
+
+.artist-content {
+  padding: 1.25rem;
+}
+
+.artist-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.artist-genre {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.artist-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.artist-remove {
+  color: var(--accent);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.artist-remove:hover {
+  color: var(--accent-dark);
+}
+
+/* Preferences */
+.preferences-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+.preferences-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.preferences-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.genre-preferences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+/* Notifications */
+.notification-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.notification-option:last-child {
+  border-bottom: none;
+}
+
+.notification-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.notification-description {
+  color: var(--gray-600);
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.form-switch .form-check-input {
+  width: 3em;
+  height: 1.5em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .profile-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .profile-nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .profile-nav-item {
+    width: 50%;
+    border-bottom: none;
+    border-right: 1px solid var(--gray-200);
+  }
+
+  .profile-nav-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .profile-nav-item a {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-nav-item i {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .ticket-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ticket-status {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .profile-nav-item {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .profile-nav-item a {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .profile-nav-item i {
+    margin-right: 1rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .ticket-actions {
+    flex-direction: column;
+  }
+
+  .ticket-actions .btn {
+    width: 100%;
+  }
+
+  .notification-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-switch {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .genre-preferences {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-check-inline {
+    margin-right: 0;
+  }
+}
