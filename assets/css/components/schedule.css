@@ -1,0 +1,493 @@
+/**
+ * SoundWave Festival - Music Festival Management System
+ * Schedule Component CSS
+ */
+
+/* Page Header */
+.page-header {
+  background-image: var(--gradient-primary);
+  color: var(--light);
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Schedule Controls */
+.schedule-controls {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-days {
+  gap: 0.5rem;
+}
+
+.schedule-days .nav-link {
+  color: var(--dark);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+}
+
+.schedule-days .nav-link.active {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.view-toggle .btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Timeline View */
+.timeline-view {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.timeline-header {
+  display: flex;
+  border-bottom: 1px solid var(--gray-300);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  background-color: var(--light);
+  z-index: 10;
+}
+
+.time-label {
+  width: 80px;
+  min-width: 80px;
+  padding: 1rem;
+  border-right: 1px solid var(--gray-300);
+  text-align: center;
+}
+
+.stage-labels {
+  display: flex;
+  flex-grow: 1;
+}
+
+.stage-label {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  border-right: 1px solid var(--gray-300);
+}
+
+.stage-label:last-child {
+  border-right: none;
+}
+
+.timeline-body {
+  position: relative;
+}
+
+.time-slots {
+  display: flex;
+}
+
+.time-column {
+  width: 80px;
+  min-width: 80px;
+  border-right: 1px solid var(--gray-300);
+  position: relative;
+}
+
+.time-slot {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--gray-300);
+  font-size: 0.85rem;
+  color: var(--gray-600);
+}
+
+.timeline-grid {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.timeline-column {
+  flex: 1;
+  min-width: 200px;
+  border-right: 1px solid var(--gray-300);
+  position: relative;
+}
+
+.timeline-column:last-child {
+  border-right: none;
+}
+
+.hour-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hour-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--gray-200);
+  z-index: 1;
+}
+
+/* Performance Card */
+.performance-card {
+  position: absolute;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  z-index: 5;
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition);
+  color: var(--light);
+  margin: 0 5px;
+  min-width: 180px;
+}
+
+.performance-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.performance-card.main-stage {
+  background-color: var(--primary);
+}
+
+.performance-card.electronic-dome {
+  background-color: var(--secondary);
+}
+
+.performance-card.acoustic-grove {
+  background-color: var(--accent);
+}
+
+.performance-card.urban-corner {
+  background-color: var(--gray-700);
+}
+
+.performance-time {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  opacity: 0.9;
+}
+
+.performance-artist {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.performance-description {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Stage View */
+.stage-view {
+  margin-top: 2rem;
+}
+
+.stage-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-header {
+  padding: 1.5rem;
+  color: var(--light);
+}
+
+.stage-header.main-stage {
+  background-color: var(--primary);
+}
+
+.stage-header.electronic-dome {
+  background-color: var(--secondary);
+}
+
+.stage-header.acoustic-grove {
+  background-color: var(--accent);
+}
+
+.stage-header.urban-corner {
+  background-color: var(--gray-700);
+}
+
+.stage-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stage-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.stage-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.stage-performances {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stage-performance-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.stage-performance-item:last-child {
+  border-bottom: none;
+}
+
+.stage-performance-time {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.stage-performance-artist {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.stage-performance-description {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.empty-schedule {
+  padding: 2rem;
+  text-align: center;
+  color: var(--gray-500);
+}
+
+/* Schedule Legend */
+.schedule-legend {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.legend-text {
+  font-weight: 500;
+}
+
+/* Performance Detail Modal */
+.performance-detail-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.performance-detail-artist-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.performance-detail-artist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.performance-detail-titles h4 {
+  margin-bottom: 0.25rem;
+}
+
+.performance-detail-stage {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+}
+
+.performance-detail-stage.main-stage {
+  background-color: var(--primary);
+}
+
+.performance-detail-stage.electronic-dome {
+  background-color: var(--secondary);
+}
+
+.performance-detail-stage.acoustic-grove {
+  background-color: var(--accent);
+}
+
+.performance-detail-stage.urban-corner {
+  background-color: var(--gray-700);
+}
+
+.performance-detail-info {
+  margin-bottom: 1.5rem;
+}
+
+.performance-detail-info .info-item {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.performance-detail-info .info-label {
+  width: 100px;
+  font-weight: 600;
+}
+
+.performance-detail-info .info-value {
+  flex-grow: 1;
+}
+
+.performance-detail-description {
+  background-color: var(--gray-100);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-style: italic;
+  color: var(--gray-700);
+}
+
+/* Add Performance Form */
+.time-check-warning {
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .stage-name {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .schedule-days .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .timeline-view {
+    margin-top: 1rem;
+  }
+
+  .time-label,
+  .time-column {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .performance-card {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .schedule-days {
+    flex-wrap: wrap;
+  }
+
+  .schedule-days .nav-item {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .schedule-days .nav-link {
+    text-align: center;
+  }
+
+  .view-toggle {
+    margin-top: 1rem;
+  }
+
+  .stage-view {
+    margin-top: 1rem;
+  }
+
+  .performance-card {
+    padding: 0.25rem;
+  }
+
+  .performance-time,
+  .performance-description {
+    font-size: 0.7rem;
+  }
+
+  .performance-artist {
+    font-size: 0.8rem;
+  }
+}
