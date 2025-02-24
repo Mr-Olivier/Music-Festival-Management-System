@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - SoundWave Festival</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/components/profile.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <span class="nav-logo-text">SoundWave</span>
+          <span class="badge bg-accent ms-2">2025</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="artists.html">Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stages.html">Stages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="schedule.html">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tickets.html">Tickets</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="search-container me-3">
+              <input type="text" class="search-input" placeholder="Search..." />
+              <button class="btn search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="dropdown">
+              <a
+                class="btn btn-outline-light dropdown-toggle"
+                href="#"
+                role="button"
+                id="userMenuDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user-circle me-1"></i> My Account
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="userMenuDropdown"
+              >
+                <li>
+                  <a class="dropdown-item active" href="profile.html"
+                    >Profile</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">My Tickets</a></li>
+                <li><a class="dropdown-item" href="#">Favorites</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 class="page-title">User Profile</h1>
+            <p class="page-subtitle">
+              Manage your account information and preferences
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <button class="btn btn-light" id="logoutBtn">
+              <i class="fas fa-sign-out-alt me-1"></i> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="row">
+          <!-- Left Sidebar - Navigation -->
+          <div class="col-lg-3">
+            <div class="profile-sidebar mb-4">
+              <div class="profile-info text-center mb-4">
+                <div class="profile-avatar">
+                  <img
+                    src="../assets/images/ui/profile.jpg"
+                    alt="User Avatar"
+                  />
+                </div>
+                <h3 class="profile-name">Alex Johnson</h3>
+                <p class="profile-role">Festival Organizer</p>
+              </div>
+
+              <ul class="profile-nav">
+                <li class="profile-nav-item active">
+                  <a href="#personalInfo" data-bs-toggle="tab">
+                    <i class="fas fa-user"></i> Personal Information
+                  </a>
+                </li>
+                <li class="profile-nav-item">
+                  <a href="#ticketHistory" data-bs-toggle="tab">
+                    <i class="fas fa-ticket-alt"></i> Ticket History
+                  </a>
+                </li>
+                <li class="profile-nav-item">
+                  <a href="#favoriteArtists" data-bs-toggle="tab">
+                    <i class="fas fa-star"></i> Favorite Artists
+                  </a>
+                </li>
+                <li class="profile-nav-item">
+                  <a href="#preferences" data-bs-toggle="tab">
+                    <i class="fas fa-cog"></i> Preferences
+                  </a>
+                </li>
+                <li class="profile-nav-item">
+                  <a href="#notifications" data-bs-toggle="tab">
+                    <i class="fas fa-bell"></i> Notifications
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Content - Tab Content -->
+          <div class="col-lg-9">
+            <div class="profile-content">
+              <div class="tab-content" id="profileTabContent">
+                <!-- Personal Information Tab -->
+                <div class="tab-pane fade show active" id="personalInfo">
+                  <div class="content-card">
+                    <div class="card-header">
+                      <h2 class="card-title">Personal Information</h2>
+                      <button
+                        class="btn btn-outline-primary btn-sm"
+                        id="editProfileBtn"
+                      >
+                        <i class="fas fa-edit me-1"></i> Edit
+                      </button>
+                    </div>
+                    <div class="card-body">
+                      <div class="personal-info-view" id="profileInfoView">
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <p class="info-label">Full Name</p>
+                          </div>
+                          <div class="col-md-8">
+                            <p class="info-value">Alex Johnson</p>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <p class="info-label">Email Address</p>
+                          </div>
+                          <div class="col-md-8">
+                            <p class="info-value">alex@example.com</p>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <p class="info-label">Phone Number</p>
+                          </div>
+                          <div class="col-md-8">
+                            <p class="info-value">(555) 123-4567</p>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <p class="info-label">Role</p>
+                          </div>
+                          <div class="col-md-8">
+                            <p class="info-value">Festival Organizer</p>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <div class="col-md-4">
+                            <p class="info-label">Member Since</p>
+                          </div>
+                          <div class="col-md-8">
+                            <p class="info-value">May 10, 2023</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="personal-info-edit"
+                        id="profileInfoEdit"
+                        style="display: none"
+                      >
+                        <form id="profileEditForm">
+                          <div class="mb-3 row">
+                            <label
+                              for="editName"
+                              class="col-md-4 col-form-label"
+                              >Full Name</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="editName"
+                                value="Alex Johnson"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 row">
+                            <label
+                              for="editEmail"
+                              class="col-md-4 col-form-label"
+                              >Email Address</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="email"
+                                class="form-control"
+                                id="editEmail"
+                                value="alex@example.com"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 row">
+                            <label
+                              for="editPhone"
+                              class="col-md-4 col-form-label"
+                              >Phone Number</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="editPhone"
+                                value="(555) 123-4567"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 row">
+                            <label
+                              for="editAvatar"
+                              class="col-md-4 col-form-label"
+                              >Profile Picture</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="file"
+                                class="form-control"
+                                id="editAvatar"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 row">
+                            <label
+                              for="editPassword"
+                              class="col-md-4 col-form-label"
+                              >New Password</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="editPassword"
+                                placeholder="Leave blank to keep current password"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="mb-3 row">
+                            <label
+                              for="confirmPassword"
+                              class="col-md-4 col-form-label"
+                              >Confirm Password</label
+                            >
+                            <div class="col-md-8">
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="confirmPassword"
+                                placeholder="Leave blank to keep current password"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="text-end">
+                            <button
+                              type="button"
+                              class="btn btn-secondary me-2"
+                              id="cancelEditBtn"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              id="saveProfileBtn"
+                            >
+                              Save Changes
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket History Tab -->
+                <div class="tab-pane fade" id="ticketHistory">
+                  <div class="content-card">
+                    <div class="card-header">
+                      <h2 class="card-title">Ticket History</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="ticket-history">
+                        <div class="ticket-item">
+                          <div class="ticket-header">
+                            <div class="ticket-title">
+                              <h3>VIP Festival Pass</h3>
+                              <p class="ticket-meta">
+                                Order #VIP-2025-AJ-1254 • Feb 15, 2025
+                              </p>
+                            </div>
+                            <div class="ticket-status success">Confirmed</div>
+                          </div>
+                          <div class="ticket-details">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <p class="ticket-detail">
+                                  <strong>Quantity:</strong> 2
+                                </p>
+                                <p class="ticket-detail">
+                                  <strong>Price:</strong> $499.99 each
+                                </p>
+                                <p class="ticket-detail">
+                                  <strong>Total:</strong> $999.98
+                                </p>
+                              </div>
+                              <div class="col-md-6">
+                                <p class="ticket-detail">
+                                  <strong>Event Dates:</strong> July 15-17, 2025
+                                </p>
+                                <p class="ticket-detail">
+                                  <strong>Location:</strong> Central Park, New
+                                  York City
+                                </p>
+                                <div class="ticket-actions">
+                                  <button class="btn btn-primary btn-sm">
+                                    <i class="fas fa-download me-1"></i>
+                                    Download
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary btn-sm"
+                                  >
+                                    <i class="fas fa-envelope me-1"></i> Email
+                                    Tickets
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="no-more-tickets text-center py-4">
+                          <p>No more tickets found in your history.</p>
+                          <a href="tickets.html" class="btn btn-primary"
+                            >Browse Available Tickets</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Favorite Artists Tab -->
+                <div class="tab-pane fade" id="favoriteArtists">
+                  <div class="content-card">
+                    <div class="card-header">
+                      <h2 class="card-title">Favorite Artists</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="favorite-artists">
+                        <div class="row g-4" id="favoriteArtistsGrid">
+                          <!-- Favorite artists will be populated via JavaScript -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Preferences Tab -->
+                <div class="tab-pane fade" id="preferences">
+                  <div class="content-card">
+                    <div class="card-header">
+                      <h2 class="card-title">Preferences</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="preferences-section mb-4">
+                        <h3 class="preferences-title">Favorite Genres</h3>
+                        <div class="genre-preferences">
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreElectronic"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="genreElectronic"
+                              >Electronic</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreJazzFusion"
+                              checked
+                            />
+                            <label
+                              class="form-check-label"
+                              for="genreJazzFusion"
+                              >Jazz Fusion</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreIndiePop"
+                              checked
+                            />
+                            <label class="form-check-label" for="genreIndiePop"
+                              >Indie Pop</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreSynthwave"
+                            />
+                            <label class="form-check-label" for="genreSynthwave"
+                              >Synthwave</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreFolk"
+                            />
+                            <label class="form-check-label" for="genreFolk"
+                              >Folk</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreDubstep"
+                            />
+                            <label class="form-check-label" for="genreDubstep"
+                              >Dubstep</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreAmbient"
+                            />
+                            <label class="form-check-label" for="genreAmbient"
+                              >Ambient</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="genreHipHop"
+                            />
+                            <label class="form-check-label" for="genreHipHop"
+                              >Hip Hop</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="preferences-section mb-4">
+                        <h3 class="preferences-title">Dietary Preferences</h3>
+                        <div class="form-group mb-3">
+                          <select class="form-select" id="dietaryPreference">
+                            <option value="none">No specific preference</option>
+                            <option value="vegetarian" selected>
+                              Vegetarian
+                            </option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                            <option value="keto">Keto</option>
+                            <option value="halal">Halal</option>
+                            <option value="kosher">Kosher</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="preferences-section mb-4">
+                        <h3 class="preferences-title">Accessibility Needs</h3>
+                        <div class="form-group mb-3">
+                          <select class="form-select" id="accessibilityNeeds">
+                            <option value="none" selected>None</option>
+                            <option value="wheelchair">
+                              Wheelchair Access
+                            </option>
+                            <option value="hearing">Hearing Assistance</option>
+                            <option value="visual">Visual Assistance</option>
+                            <option value="mobility">
+                              Mobility Assistance
+                            </option>
+                            <option value="other">
+                              Other (Please specify)
+                            </option>
+                          </select>
+                        </div>
+                        <div
+                          class="form-group"
+                          id="accessibilitySpecify"
+                          style="display: none"
+                        >
+                          <label for="accessibilityNotes"
+                            >Please specify your needs:</label
+                          >
+                          <textarea
+                            class="form-control"
+                            id="accessibilityNotes"
+                            rows="3"
+                          ></textarea>
+                        </div>
+                      </div>
+
+                      <div class="text-end">
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          id="savePreferencesBtn"
+                        >
+                          Save Preferences
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="tab-pane fade" id="notifications">
+                  <div class="content-card">
+                    <div class="card-header">
+                      <h2 class="card-title">Notification Settings</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="notification-settings">
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">
+                              Email Notifications
+                            </h3>
+                            <p class="notification-description">
+                              Receive updates and important information via
+                              email
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="emailNotifications"
+                              checked
+                            />
+                          </div>
+                        </div>
+
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">
+                              App Notifications
+                            </h3>
+                            <p class="notification-description">
+                              Receive push notifications in the mobile app
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="appNotifications"
+                              checked
+                            />
+                          </div>
+                        </div>
+
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">Schedule Updates</h3>
+                            <p class="notification-description">
+                              Get notified about changes in the festival
+                              schedule
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="scheduleNotifications"
+                              checked
+                            />
+                          </div>
+                        </div>
+
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">
+                              Artist Announcements
+                            </h3>
+                            <p class="notification-description">
+                              Be the first to know about new artist additions
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="artistNotifications"
+                              checked
+                            />
+                          </div>
+                        </div>
+
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">
+                              Ticket Promotions
+                            </h3>
+                            <p class="notification-description">
+                              Receive special offers and discounts on tickets
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="promoNotifications"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="notification-option">
+                          <div class="notification-info">
+                            <h3 class="notification-title">
+                              Partner Promotions
+                            </h3>
+                            <p class="notification-description">
+                              Receive offers from our festival partners
+                            </p>
+                          </div>
+                          <div class="form-check form-switch">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="partnerNotifications"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="text-end mt-4">
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          id="saveNotificationsBtn"
+                        >
+                          Save Notification Settings
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <h3>SoundWave Festival</h3>
+              <p>
+                The ultimate music festival experience. Bringing together the
+                best artists, stages and fans.
+              </p>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-title">Navigate</h4>
+            <ul class="footer-links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="artists.html">Artists</a></li>
+              <li><a href="stages.html">Stages</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="tickets.html">Tickets</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-title">Management</h4>
+            <ul class="footer-links">
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Reports</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Staff Access</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-title">Newsletter</h4>
+            <p>
+              Subscribe to get updates on ticket sales, artist announcements,
+              and more.
+            </p>
+            <form class="footer-form">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your email"
+                />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="copyright">
+                &copy; 2025 SoundWave Festival. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <ul class="footer-bottom-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mock Data -->
+    <script src="../assets/js/data.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Profile-specific JavaScript -->
+    <script src="../assets/js/components/profile.js"></script>
+  </body>
+</html>
