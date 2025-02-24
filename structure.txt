@@ -1,0 +1,108 @@
+# Music Festival Management System - Project Structure
+
+## Directory Structure
+```
+music-festival-ui/
+│
+├── assets/
+│   ├── css/
+│   │   ├── main.css         # Main custom styles
+│   │   └── components/      # Component-specific styles
+│   │       ├── artist.css
+│   │       ├── stages.css
+│   │       ├── schedule.css
+│   │       ├── tickets.css
+│   │       └── profile.css
+│   │
+│   ├── js/
+│   │   ├── main.js          # Main JavaScript file
+│   │   ├── data.js          # Mock data storage
+│   │   └── components/      # Component-specific JavaScript
+│   │       ├── artist.js
+│   │       ├── stages.js
+│   │       ├── schedule.js
+│   │       ├── tickets.js
+│   │       └── profile.js
+│   │
+│   └── images/
+│       ├── artists/         # Artist images
+│       ├── stages/          # Stage images
+│       ├── ui/              # UI elements
+│       └── logo.png         # Festival logo
+│
+├── pages/                   # Individual pages
+│   ├── artists.html
+│   ├── stages.html
+│   ├── schedule.html
+│   ├── tickets.html
+│   └── profile.html
+│
+└── index.html               # Main entry page
+```
+
+## Component Architecture
+
+### 1. Navigation Component
+- Responsive navbar with links to all main sections
+- Mobile-friendly collapsible menu
+- User profile dropdown menu
+- Search functionality
+
+### 2. Artist Management Component
+- Artist grid/list view (switchable)
+- Artist filtering and search
+- Artist detail modal
+- Artist form component (add/edit)
+
+### 3. Stage Management Component
+- Stage card components
+- Stage detail view
+- Schedule integration for stages
+
+### 4. Schedule Component
+- Timeline visualization
+- Day/stage filtering
+- Performance cards
+- Responsive grid system for different views
+
+### 5. Ticket Purchase Component
+- Ticket type cards
+- Shopping cart functionality
+- Checkout modal
+- Order confirmation
+
+### 6. User Profile Component
+- Profile information display
+- Edit profile form
+- Purchased tickets section
+- Saved favorites section
+
+### 7. Footer Component
+- Site navigation
+- Social media links
+- Contact information
+- Newsletter signup
+
+## Libraries and Frameworks
+- Bootstrap 5.3.0 (CSS framework)
+- Font Awesome 6.4.0 (Icons)
+- Google Fonts (Typography)
+- Vanilla JavaScript (Functionality)
+
+## Responsive Design Strategy
+- Mobile-first approach
+- Bootstrap breakpoints:
+  - xs (< 576px): Mobile phones
+  - sm (≥ 576px): Large phones, small tablets
+  - md (≥ 768px): Tablets
+  - lg (≥ 992px): Desktops
+  - xl (≥ 1200px): Large desktops
+  - xxl (≥ 1400px): Extra large displays
+
+## Color Scheme and Typography
+- Primary: #6A11CB (Deep Purple)
+- Secondary: #2575FC (Bright Blue)
+- Accent: #FF416C (Vibrant Pink)
+- Background gradient: Linear gradient from #6A11CB to #2575FC
+- Text: #333333 (Dark Gray) for body, #FFFFFF (White) for contrast
+- Typography: 'Poppins' for headings, 'Roboto' for body text
