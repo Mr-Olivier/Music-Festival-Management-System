@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management - SoundWave Festival</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/components/tickets.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <span class="nav-logo-text">SoundWave</span>
+          <span class="badge bg-accent ms-2">2025</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="artists.html">Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stages.html">Stages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="schedule.html">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="tickets.html">Tickets</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="search-container me-3">
+              <input type="text" class="search-input" placeholder="Search..." />
+              <button class="btn search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="dropdown">
+              <a
+                class="btn btn-outline-light dropdown-toggle"
+                href="#"
+                role="button"
+                id="userMenuDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user-circle me-1"></i> My Account
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="userMenuDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="profile.html">Profile</a>
+                </li>
+                <li><a class="dropdown-item" href="#">My Tickets</a></li>
+                <li><a class="dropdown-item" href="#">Favorites</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 class="page-title">Ticket Management</h1>
+            <p class="page-subtitle">Manage and sell festival tickets</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#addTicketModal"
+            >
+              <i class="fas fa-plus-circle me-1"></i> Add New Ticket Type
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Ticket Sales Overview -->
+        <div class="sales-overview mb-4">
+          <div class="row g-4">
+            <!-- Total Sales Card -->
+            <div class="col-md-3">
+              <div class="sales-card">
+                <div class="sales-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="sales-content">
+                  <h3 class="sales-number">$210,750</h3>
+                  <p class="sales-label">Total Sales</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tickets Sold Card -->
+            <div class="col-md-3">
+              <div class="sales-card">
+                <div class="sales-icon">
+                  <i class="fas fa-ticket-alt"></i>
+                </div>
+                <div class="sales-content">
+                  <h3 class="sales-number">7,380</h3>
+                  <p class="sales-label">Tickets Sold</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Available Tickets Card -->
+            <div class="col-md-3">
+              <div class="sales-card">
+                <div class="sales-icon">
+                  <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="sales-content">
+                  <h3 class="sales-number">3,120</h3>
+                  <p class="sales-label">Available Tickets</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sold Out Percentage Card -->
+            <div class="col-md-3">
+              <div class="sales-card">
+                <div class="sales-icon">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="sales-content">
+                  <h3 class="sales-number">70%</h3>
+                  <p class="sales-label">Sold Out</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="row">
+          <!-- Left Column - Ticket Types -->
+          <div class="col-lg-8">
+            <div class="content-card mb-4">
+              <div class="content-header">
+                <h2 class="content-title">Available Ticket Types</h2>
+                <div class="content-actions">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary active"
+                      id="viewAllTickets"
+                    >
+                      All
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                      id="viewAvailableTickets"
+                    >
+                      Available
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                      id="viewLimitedTickets"
+                    >
+                      Limited
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="content-body">
+                <div class="ticket-types-container" id="ticketTypesContainer">
+                  <!-- Ticket types will be populated via JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Shopping Cart & Stats -->
+          <div class="col-lg-4">
+            <!-- Shopping Cart -->
+            <div class="content-card mb-4">
+              <div class="content-header">
+                <h2 class="content-title">Shopping Cart</h2>
+                <span class="badge bg-primary" id="cartItemCount">0</span>
+              </div>
+              <div class="content-body">
+                <div id="shoppingCart" class="shopping-cart">
+                  <div class="empty-cart text-center py-4">
+                    <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                    <p>Your cart is empty</p>
+                    <p class="text-muted small">
+                      Add tickets to proceed with purchase
+                    </p>
+                  </div>
+
+                  <!-- Cart items will be added here via JavaScript -->
+                  <div id="cartItems" style="display: none"></div>
+
+                  <div class="cart-totals" style="display: none">
+                    <div class="d-flex justify-content-between mb-2">
+                      <span>Subtotal</span>
+                      <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <span>Fees</span>
+                      <span id="cartFees">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold">
+                      <span>Total</span>
+                      <span id="cartTotal">$0.00</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="cart-actions mt-3"
+                  id="cartActions"
+                  style="display: none"
+                >
+                  <button class="btn btn-primary w-100" id="checkoutBtn">
+                    Proceed to Checkout
+                  </button>
+                  <button
+                    class="btn btn-outline-danger w-100 mt-2"
+                    id="clearCartBtn"
+                  >
+                    Clear Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sales Statistics -->
+            <div class="content-card">
+              <div class="content-header">
+                <h2 class="content-title">Sales Statistics</h2>
+              </div>
+              <div class="content-body">
+                <div class="sales-stats">
+                  <h5 class="mb-3">Sales by Ticket Type</h5>
+                  <div id="salesByTicketType">
+                    <!-- Will be populated via JavaScript -->
+                  </div>
+
+                  <h5 class="mt-4 mb-3">Daily Sales (Last 7 Days)</h5>
+                  <div class="daily-sales-chart" id="dailySalesChart">
+                    <div class="chart-bars">
+                      <div
+                        class="chart-bar"
+                        style="height: 40%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 17: $5,240"
+                      >
+                        <span class="chart-value">$5.2k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 60%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 18: $7,850"
+                      >
+                        <span class="chart-value">$7.8k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 30%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 19: $3,920"
+                      >
+                        <span class="chart-value">$3.9k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 45%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 20: $5,870"
+                      >
+                        <span class="chart-value">$5.8k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 75%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 21: $9,760"
+                      >
+                        <span class="chart-value">$9.7k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 85%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 22: $11,050"
+                      >
+                        <span class="chart-value">$11k</span>
+                      </div>
+                      <div
+                        class="chart-bar"
+                        style="height: 70%"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Feb 23: $9,120"
+                      >
+                        <span class="chart-value">$9.1k</span>
+                      </div>
+                    </div>
+                    <div class="chart-labels">
+                      <span>17</span>
+                      <span>18</span>
+                      <span>19</span>
+                      <span>20</span>
+                      <span>21</span>
+                      <span>22</span>
+                      <span>23</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Add Ticket Modal -->
+    <div
+      class="modal fade"
+      id="addTicketModal"
+      tabindex="-1"
+      aria-labelledby="addTicketModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addTicketModalLabel">
+              Add New Ticket Type
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addTicketForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="ticketName" class="form-label"
+                      >Ticket Name *</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ticketName"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="ticketPrice" class="form-label"
+                      >Price * ($)</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="ticketPrice"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="ticketAvailable" class="form-label"
+                      >Available Quantity *</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="ticketAvailable"
+                      min="0"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="ticketMaxPerPurchase" class="form-label"
+                      >Max Per Purchase *</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="ticketMaxPerPurchase"
+                      min="1"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="ticketDescription" class="form-label"
+                      >Description *</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="ticketDescription"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Features</label>
+                    <div class="feature-inputs">
+                      <div class="input-group mb-2">
+                        <input
+                          type="text"
+                          class="form-control feature-input"
+                          placeholder="Add feature"
+                        />
+                        <button
+                          class="btn btn-outline-secondary add-feature-btn"
+                          type="button"
+                        >
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                    <div class="feature-list mt-2" id="featureList">
+                      <!-- Features will be added here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button type="button" class="btn btn-primary" id="saveTicketBtn">
+              Save Ticket
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div
+      class="modal fade"
+      id="checkoutModal"
+      tabindex="-1"
+      aria-labelledby="checkoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="checkoutModalLabel">
+              Complete Your Purchase
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-7">
+                <h5 class="mb-3">Payment Information</h5>
+                <form id="paymentForm">
+                  <div class="mb-3">
+                    <label for="cardName" class="form-label"
+                      >Name on Card</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="cardNumber" class="form-label"
+                      >Card Number</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardNumber"
+                      placeholder="XXXX XXXX XXXX XXXX"
+                      required
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="cardExpiry" class="form-label"
+                          >Expiration Date</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cardExpiry"
+                          placeholder="MM/YY"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="cardCVV" class="form-label">CVV</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cardCVV"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="billingAddress" class="form-label"
+                      >Billing Address</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="billingAddress"
+                      required
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="billingCity" class="form-label">City</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="billingCity"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="mb-3">
+                        <label for="billingState" class="form-label"
+                          >State</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="billingState"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="mb-3">
+                        <label for="billingZip" class="form-label"
+                          >ZIP Code</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="billingZip"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5">
+                <h5 class="mb-3">Order Summary</h5>
+                <div class="order-summary p-3 bg-light rounded">
+                  <div id="checkoutItems">
+                    <!-- Checkout items will be inserted here -->
+                  </div>
+                  <hr />
+                  <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <span id="checkoutSubtotal">$0.00</span>
+                  </div>
+                  <div class="d-flex justify-content-between mb-2">
+                    <span>Service Fee</span>
+                    <span id="checkoutFees">$0.00</span>
+                  </div>
+                  <hr />
+                  <div class="d-flex justify-content-between fw-bold">
+                    <span>Total</span>
+                    <span id="checkoutTotal">$0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="completeCheckoutBtn"
+            >
+              Complete Purchase
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Purchase Confirmation Modal -->
+    <div
+      class="modal fade"
+      id="purchaseConfirmationModal"
+      tabindex="-1"
+      aria-labelledby="purchaseConfirmationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="purchaseConfirmationModalLabel">
+              <i class="fas fa-check-circle me-2"></i>Purchase Successful!
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="purchase-success-icon mb-4">
+              <i class="fas fa-ticket-alt fa-5x text-success"></i>
+            </div>
+            <h4>Thank You for Your Purchase!</h4>
+            <p>
+              Your tickets have been confirmed and will be sent to your email.
+            </p>
+            <div class="order-details mt-4 text-start">
+              <h6>Order Details:</h6>
+              <p>
+                <strong>Order Number:</strong>
+                <span id="confirmationOrderNumber">SW-25789</span>
+              </p>
+              <p>
+                <strong>Purchase Date:</strong>
+                <span id="confirmationDate">February 24, 2025</span>
+              </p>
+              <p>
+                <strong>Total Amount:</strong>
+                <span id="confirmationAmount">$299.99</span>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-print me-2"></i>Print Receipt
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <h3>SoundWave Festival</h3>
+              <p>
+                The ultimate music festival experience. Bringing together the
+                best artists, stages and fans.
+              </p>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-title">Navigate</h4>
+            <ul class="footer-links">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="artists.html">Artists</a></li>
+              <li><a href="stages.html">Stages</a></li>
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="tickets.html">Tickets</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h4 class="footer-title">Management</h4>
+            <ul class="footer-links">
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Reports</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Staff Access</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-title">Newsletter</h4>
+            <p>
+              Subscribe to get updates on ticket sales, artist announcements,
+              and more.
+            </p>
+            <form class="footer-form">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your email"
+                />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="copyright">
+                &copy; 2025 SoundWave Festival. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <ul class="footer-bottom-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mock Data -->
+    <script src="../assets/js/data.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Tickets-specific JavaScript -->
+    <script src="../assets/js/components/tickets.js"></script>
+  </body>
+</html>
