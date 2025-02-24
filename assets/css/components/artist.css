@@ -1,0 +1,418 @@
+/**
+ * SoundWave Festival - Music Festival Management System
+ * Artist Component CSS
+ */
+
+/* Page Header */
+.page-header {
+  background-image: var(--gradient-primary);
+  color: var(--light);
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Filter Controls */
+.filter-controls {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.view-toggle .btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Artist Card (Grid View) */
+.artist-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.artist-card-image {
+  position: relative;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+}
+
+.artist-card-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.artist-card:hover .artist-card-image img {
+  transform: scale(1.05);
+}
+
+.artist-card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-card-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.artist-card-genre {
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+
+.artist-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.artist-card-social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+/* Artist List Item (List View) */
+.artist-list-item {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.artist-list-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(5px);
+}
+
+.artist-list-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.artist-list-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-list-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.artist-list-genre {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.list-body .row {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--light);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.list-body .row:hover {
+  box-shadow: var(--shadow-md);
+  background-color: rgba(var(--primary-rgb), 0.05);
+}
+
+.list-header .row {
+  margin-bottom: 1rem;
+}
+
+.artist-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--primary-light);
+  color: var(--light);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Artist Action Buttons */
+.artist-actions .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-artist-edit {
+  color: var(--primary);
+  background-color: rgba(var(--primary-rgb), 0.1);
+  border: none;
+}
+
+.btn-artist-edit:hover {
+  background-color: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-dark);
+}
+
+.btn-artist-delete {
+  color: var(--accent);
+  background-color: rgba(var(--accent-rgb), 0.1);
+  border: none;
+}
+
+.btn-artist-delete:hover {
+  background-color: rgba(var(--accent-rgb), 0.2);
+  color: var(--accent-dark);
+}
+
+/* Artist Detail Modal */
+.artist-detail-header {
+  position: relative;
+  padding-top: 40%;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+  margin: -1rem -1rem 1rem -1rem;
+}
+
+.artist-detail-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-detail-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.artist-detail-name {
+  color: var(--light);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.artist-detail-genre {
+  color: var(--light);
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.artist-bio {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.artist-detail-social {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.artist-detail-social .social-link {
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+}
+
+.artist-performances-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+}
+
+.performance-item {
+  background-color: var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.performance-item:hover {
+  background-color: var(--gray-200);
+}
+
+.performance-date {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.performance-time {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.performance-stage {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.performance-description {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: var(--gray-700);
+}
+
+/* Add/Edit Artist Form */
+.image-preview {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--gray-200);
+  margin-bottom: 1rem;
+}
+
+.image-preview img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-preview-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  font-size: 2rem;
+}
+
+.required-field::after {
+  content: "*";
+  color: var(--accent);
+  margin-left: 0.25rem;
+}
+
+/* No Results State */
+#noResults {
+  padding: 3rem 1rem;
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+#noResults i {
+  color: var(--gray-400);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .artist-detail-name {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .artist-detail-header {
+    padding-top: 60%;
+  }
+
+  .list-header {
+    display: none;
+  }
+
+  .list-body .col-1,
+  .list-body .col-2,
+  .list-body .col-3 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .artist-card-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .artist-card-social {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .view-toggle {
+    margin-top: 1rem;
+  }
+}
