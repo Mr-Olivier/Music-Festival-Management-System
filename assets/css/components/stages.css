@@ -1,0 +1,510 @@
+/**
+ * SoundWave Festival - Music Festival Management System
+ * Stages Component CSS
+ */
+
+/* Page Header */
+.page-header {
+  background-image: var(--gradient-primary);
+  color: var(--light);
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Sidebar Filters */
+.stages-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.filter-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.filter-title {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.filter-body {
+  padding: 1.25rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+/* Schedule Overview */
+.schedule-overview-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.overview-title {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.overview-body {
+  padding: 1.25rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.performance-distribution h6 {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+}
+
+.progress-item {
+  margin-bottom: 0.75rem;
+}
+
+.progress-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Stage Card */
+.stage-card {
+  background-color: var(--light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  transition: var(--transition);
+  position: relative;
+}
+
+.stage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stage-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stage-card:hover .stage-image img {
+  transform: scale(1.05);
+}
+
+.stage-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+}
+
+.main-stage-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--primary-rgb), 0.2),
+    rgba(var(--primary-rgb), 0.7)
+  );
+}
+
+.electronic-dome-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--secondary-rgb), 0.2),
+    rgba(var(--secondary-rgb), 0.7)
+  );
+}
+
+.acoustic-grove-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--accent-rgb), 0.2),
+    rgba(var(--accent-rgb), 0.7)
+  );
+}
+
+.urban-corner-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--gray-700-rgb), 0.2),
+    rgba(var(--gray-700-rgb), 0.7)
+  );
+}
+
+.stage-content {
+  padding: 1.5rem;
+}
+
+.stage-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.stage-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.stage-meta-item {
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.stage-meta-item i {
+  color: var(--primary);
+  margin-right: 0.5rem;
+}
+
+.stage-description {
+  margin-bottom: 1.5rem;
+  color: var(--gray-700);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.stage-facilities {
+  margin-bottom: 1.5rem;
+}
+
+.facilities-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--gray-700);
+}
+
+.facilities-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.facilities-list li {
+  background-color: var(--gray-100);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--gray-700);
+}
+
+.stage-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.stage-actions .btn {
+  flex: 1;
+}
+
+/* Stage Detail Modal */
+.stage-detail-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.main-stage-header {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.electronic-dome-header {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.acoustic-grove-header {
+  background-color: var(--accent);
+  color: var(--light);
+}
+
+.urban-corner-header {
+  background-color: var(--gray-700);
+  color: var(--light);
+}
+
+.stage-detail-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+.stage-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-detail-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.5)
+  );
+  z-index: 1;
+}
+
+.main-stage-bg {
+  background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+.electronic-dome-bg {
+  background-color: rgba(var(--secondary-rgb), 0.1);
+}
+
+.acoustic-grove-bg {
+  background-color: rgba(var(--accent-rgb), 0.1);
+}
+
+.urban-corner-bg {
+  background-color: rgba(var(--gray-700-rgb), 0.1);
+}
+
+.stage-detail-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.stage-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.stage-detail-meta .stage-meta-item {
+  margin-right: 2rem;
+  font-size: 1rem;
+}
+
+.stage-detail-description h4,
+.stage-detail-facilities h4,
+.stage-detail-schedule h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+.stage-detail-description p {
+  margin-bottom: 1.5rem;
+}
+
+.stage-detail-facilities .facilities-list {
+  flex-direction: column;
+}
+
+.stage-detail-facilities .facilities-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.stage-detail-facilities .facilities-list li:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+.upcoming-performances {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.upcoming-performance-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.upcoming-performance-item:last-child {
+  border-bottom: none;
+}
+
+.performance-time {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 0.25rem;
+}
+
+.performance-artist {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+
+/* Facility Tags in Add Stage Modal */
+.facility-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.facility-tag {
+  background-color: var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.facility-tag .remove-facility {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: var(--gray-500);
+  transition: var(--transition);
+}
+
+.facility-tag .remove-facility:hover {
+  color: var(--accent);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .stages-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  .stage-detail-image {
+    height: 200px;
+  }
+
+  .stage-detail-info .row {
+    flex-direction: column;
+  }
+
+  .stage-detail-facilities,
+  .stage-detail-schedule {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-header {
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .stage-image {
+    height: 180px;
+  }
+
+  .stage-name {
+    font-size: 1.25rem;
+  }
+
+  .stage-actions {
+    flex-direction: column;
+  }
+
+  .stat-item,
+  .progress-item {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .stage-meta {
+    flex-direction: column;
+  }
+
+  .stage-meta-item {
+    margin-right: 0;
+  }
+
+  .stage-detail-meta {
+    flex-direction: column;
+  }
+
+  .stage-detail-meta .stage-meta-item {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
