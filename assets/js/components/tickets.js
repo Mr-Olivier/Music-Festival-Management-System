@@ -360,3 +360,166 @@ document.addEventListener("DOMContentLoaded", function () {
     addTicketModal.addEventListener("hidden.bs.modal", resetAddTicketForm);
   }
 });
+
+
+/**
+ * Handle Add Ticket Form Submission
+ */
+function handleAddTicketForm() {
+  const form = document.getElementById('addTicketForm');
+  const ticketId = form.dataset.ticketId;
+  
+  // Get form values
+  const ticketName = document.getElementById('ticketName').value.trim();
+  const ticketPrice = parseFloat(document.getElementById('ticketPrice').value);
+  const ticketAvailable = parseInt(document.getElementById('ticketAvailable').value);
+  const ticketMaxPerPurchase = parseInt(document.getElementById('ticketMaxPerPurchase').value);
+  const ticketDescription = document.getElementById('ticketDescription').value.trim();
+  
+  // Get features
+  const features = [];
+  document.querySelectorAll('#featureList .feature-tag').forEach(tag => {
+      features.push(tag.querySelector('span').textContent);
+  });
+  
+  // Validate required fields
+  if (!ticketName || isNaN(ticketPrice) || isNaN(ticketAvailable) || isNaN(ticketMaxPerPurchase) || !ticketDescription) {
+      alert('Please fill in all required fields.');
+      return;
+  }
+  
+  // Create ticket object
+  const ticketData = {
+      name: ticketName,
+      description: ticketDescription,
+      price: ticketPrice,
+      available: ticketAvailable,
+      sold: 0,
+      maxPerPurchase: ticketMaxPerPurchase,
+      features: features
+  };
+  
+  // Check if adding new or editing existing
+  if (ticketId) {
+      // Edit existing ticket
+      ticketData.id = parseInt(ticketId);
+      
+      // Find and update the ticket
+      const index = tickets.findIndex(t => t.id === ticketData.id);
+      if (index !== -1) {
+          // Preserve sold tickets
+          ticketData.sold = tickets[index].sold;
+          tickets[index] = ticketData;
+          alert('Ticket updated successfully!');
+      }
+  } else {
+      // Add new ticket
+      // Generate new ID
+      const newId = Math.max(...tickets.map(t => t.id)) + 1;
+      ticketData.id = newId;
+      
+      // Add to tickets array
+      tickets.push(ticketData);
+      alert('New ticket added successfully!');
+  }
+  
+  // Close the modal
+  const modal = bootstrap.Modal.getInstance(document.getElementById('addTicketModal'));
+  modal.hide();
+  
+  // Reset the form
+  form.reset();
+  document.getElementById('featureList').innerHTML = '';
+  delete form.dataset.ticketId;
+  
+  // Update ticket display
+  renderTicketTypes();
+  
+  // Update sales statistics
+  initializeSalesStats();
+}
+
+/**
+* Add Feature to Feature List
+*/
+function addFeature() {
+  const featureInput = document.querySelector('.feature-input');
+  const featureList = document.getElementById('featureList');
+  
+  if (featureInput && featureList && featureInput.value.trim() !== '') {
+      const featureText = featureInput.value.trim();
+      
+      const featureTag = document.createElement('div');
+      featureTag.className = 'feature-tag';
+      featureTag.innerHTML = `
+          <span>${featureText}</span>
+          <span class="remove-feature"><i class="fas fa-times"></i></span>
+      `;
+      
+      // Add click event to remove feature
+      featureTag.querySelector('.remove-feature').addEventListener('click', function() {
+          featureTag.remove();
+      });
+      
+      featureList.appendChild(featureTag);
+      featureInput.value = '';
+      featureInput.focus();
+  }
+}
+
+/**
+* Reset Add Ticket Form
+*/
+function resetAddTicketForm() {
+  const form = document.getElementById('addTicketForm');
+  if (!form) return;
+  
+  // Clear form inputs
+  form.reset();
+  
+  // Clear features list
+  document.getElementById('featureList').innerHTML = '';
+  
+  // Clear ticket ID if it was set for editing
+  delete form.dataset.ticketId;
+  
+  // Reset modal title
+  const modalTitle = document.querySelector('#addTicketModal .modal-title');
+  if (modalTitle) modalTitle.textContent = 'Add New Ticket Type';
+  
+  // Reset save button text
+  const saveBtn = document.getElementById('saveTicketBtn');
+  if (saveBtn) saveBtn.textContent = 'Save Ticket';
+}
+
+// Make sure to add these event listeners when the DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Add Ticket Modal Event Listeners
+  const addTicketModal = document.getElementById('addTicketModal');
+  if (addTicketModal) {
+      addTicketModal.addEventListener('hidden.bs.modal', resetAddTicketForm);
+  }
+  
+  // Feature Add Button Event Listener
+  const addFeatureBtn = document.querySelector('.add-feature-btn');
+  if (addFeatureBtn) {
+      addFeatureBtn.addEventListener('click', addFeature);
+  }
+  
+  // Save Ticket Button Event Listener
+  const saveTicketBtn = document.getElementById('saveTicketBtn');
+  if (saveTicketBtn) {
+      saveTicketBtn.addEventListener('click', handleAddTicketForm);
+  }
+  
+  // Form Enter Key Handling for Features
+  const featureInput = document.querySelector('.feature-input');
+  if (featureInput) {
+      featureInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+              e.preventDefault();
+              addFeature();
+          }
+      });
+  }
+});

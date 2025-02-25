@@ -25,7 +25,7 @@ music-festival-ui/
 │   │       └── profile.js
 │   │
 │   └── images/
-│       ├── artists/         # Artist images
+│       ├── sartist/         # Artist images
 │       ├── stages/          # Stage images
 │       ├── ui/              # UI elements
 │       └── logo.png         # Festival logo
